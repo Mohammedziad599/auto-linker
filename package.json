@@ -1,0 +1,21 @@
+{
+  "name": "auto-linker",
+  "version": "1.0.0",
+  "description": "auto link pull request title to jira tickets",
+  "main": "index.js",
+  "scripts": {
+    "watch:css": "npx tailwindcss -i ./tailwind.css -o ./css/style.css --watch"
+  },
+  "keywords": [
+    "jira",
+    "github",
+    "gitlab",
+    "chrome",
+    "firefox"
+  ],
+  "author": "Mohammed Ziad",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
