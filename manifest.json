@@ -1,31 +1,30 @@
 {
-    "manifest_version": 2,
-    "name": "Autolinker Github/Jira",
-    "version": "1.0",
-
-    "description": "Change the Jira Tickets to links in the Github Pull Requests Title",
-
-    "browser_action": {
-        "default_popup": "settings/settings.html"
-    },
-
-    "options_ui": {
-      "page": "settings/settings.html"
-    },
-
-    "permissions": ["storage"],
-
-    "content_scripts": [
-      {
-        "matches": ["*://*.github.com/*"],
-        "js": ["jira.js"]
-      }
-    ],
-
-    "browser_specific_settings": {
-      "gecko": {
-        "id": "autolinker@extension.com"
-      }
+  "manifest_version": 3,
+  "name": "Auto-linker Github/Jira",
+  "version": "1.0",
+  "description": "Change the Jira Tickets to links in the Github Pull Requests Title",
+  "action": {
+    "default_popup": "settings/settings.html"
+  },
+  "options_ui": {
+    "page": "settings/settings.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "js": [
+        "jira.js"
+      ]
     }
-
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "autolinker@extension.com"
+    }
   }
+}
