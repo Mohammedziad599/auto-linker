@@ -1,4 +1,3 @@
-
 let saveSettings = (event) => {
   event.preventDefault();
   browser.storage.sync.set({

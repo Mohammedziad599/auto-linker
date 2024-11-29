@@ -2,55 +2,56 @@
 <html lang="en">
 
 <head>
+    <title>Auto-Linker Github/Jira</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body class="dark:bg-gray-800">
-    <div class="p-4">
-        <form id="form">
-            <div class="flex flex-col py-3 dark:text-white">
-                <label for="regex" class="pb-2 font-semibold">Regex:</label>
-                <input type="text" id="regex" placeholder="Regex"
-                    class="p-2 rounded-md
+<div class="p-4">
+    <form id="form">
+        <div class="flex flex-col py-3 dark:text-white">
+            <label for="regex" class="pb-2 font-semibold">Regex:</label>
+            <input type="text" id="regex" placeholder="Regex"
+                   class="p-2 rounded-md
                     bg-slate-300
                     dark:bg-gray-700">
-            </div>
-            <div class="flex flex-col py-3 dark:text-white">
-                <label for="username" class="pb-2 font-semibold">Username:</label>
-                <input type="text" id="username" placeholder="Github Username"
-                    class="p-2 rounded-md
+        </div>
+        <div class="flex flex-col py-3 dark:text-white">
+            <label for="username" class="pb-2 font-semibold">Username:</label>
+            <input type="text" id="username" placeholder="Github Username"
+                   class="p-2 rounded-md
                     bg-slate-300
                     dark:bg-gray-700">
-            </div>
-            <div class="flex flex-col py-3 dark:text-white">
-                <label for="repo-name" class="pb-2 font-semibold">Repository name:</label>
-                <input type="text" id="repo-name" placeholder="Repository name"
-                    class="p-2 rounded-md
+        </div>
+        <div class="flex flex-col py-3 dark:text-white">
+            <label for="repo-name" class="pb-2 font-semibold">Repository name:</label>
+            <input type="text" id="repo-name" placeholder="Repository name"
+                   class="p-2 rounded-md
                     bg-slate-300
                     dark:bg-gray-700">
-            </div>
-            <div class="flex flex-col py-3 dark:text-white">
-                <label for="jira-link" class="pb-2 font-semibold">Jira Link:</label>
-                <input type="text" id="jira-link" placeholder="Jira Link"
-                    class="p-2 rounded-md
+        </div>
+        <div class="flex flex-col py-3 dark:text-white">
+            <label for="jira-link" class="pb-2 font-semibold">Jira Link:</label>
+            <input type="text" id="jira-link" placeholder="Jira Link"
+                   class="p-2 rounded-md
                     bg-slate-300
                     dark:bg-gray-700">
-            </div>
-            <div class="flex justify-center pt-4">
-                <button class="py-1 px-8 w-100 rounded-md transition-colors duration-200
+        </div>
+        <div class="flex justify-center pt-4">
+            <button class="py-1 px-8 w-100 rounded-md transition-colors duration-200
                 bg-green-500 hover:bg-green-600 focus:bg-green-600 active:bg-green-700
                 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:bg-green-700 dark:active:bg-green-800">
                 Save
             </button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
-    <script src="settings.js"></script>
+<script src="settings.js"></script>
 </body>
 
 </html>

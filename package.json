@@ -4,12 +4,11 @@
   "description": "auto link pull request title to jira tickets",
   "main": "index.js",
   "scripts": {
-    "watch:css": "npx tailwindcss -i ./tailwind.css -o ./css/style.css --watch"
+    "watch:css": "npx tailwindcss -i ./tailwind.css -o style/style.css --watch"
   },
   "keywords": [
     "jira",
     "github",
-    "gitlab",
     "chrome",
     "firefox"
   ],
