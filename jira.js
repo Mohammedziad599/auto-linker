@@ -11,12 +11,12 @@ let jiraLink = '';
 function performLinking() {
   if (window.location.href.includes(href)) {
     let pullRequestTitleElement = document.querySelector('bdi.js-issue-title.markdown-title');
-    let pullRequestTitleText = pullRequestTitleElement.textContent;
-    if (pullRequestTitleText?.includes('</a>')) {
+    let pullRequestTitleText = pullRequestTitleElement?.textContent;
+    if (!pullRequestTitleText || pullRequestTitleText?.includes('</a>')) {
       return;
     }
 
-    pullRequestTitleText.match(regex).forEach((issueTicket) => {
+    pullRequestTitleText.match(regex)?.forEach((issueTicket) => {
       let issueTicketLink = document.createElement('a');
       issueTicketLink.setAttribute('href', `${jiraLink}${issueTicket}`);
       issueTicketLink.innerHTML = issueTicket;
