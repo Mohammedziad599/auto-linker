@@ -14,7 +14,8 @@ function performLinking() {
   if (window.location.href.includes(href)) {
     let pullRequestTitleElement = document.querySelector('bdi.js-issue-title.markdown-title');
     let pullRequestTitleText = pullRequestTitleElement?.textContent;
-    if (!pullRequestTitleText || pullRequestTitleText?.includes('</a>')) {
+    let pullRequestTitleContent = pullRequestTitleElement?.innerHTML;
+    if (!pullRequestTitleText || pullRequestTitleContent?.includes('</a>')) {
       return;
     }
 
@@ -51,14 +52,9 @@ function getSettings() {
 
 setInterval(() => {
   let pullRequestTitleElement = document.querySelector('bdi.js-issue-title.markdown-title');
-  let pullRequestTitleText = pullRequestTitleElement?.textContent;
-  let pullRequestNotLinked = false;
+  let pullRequestTitleContent = pullRequestTitleElement?.innerHTML;
 
-  if (!pullRequestTitleText?.includes('</a>')) {
-    pullRequestNotLinked = true;
-  }
-
-  if (oldUrl !== window.location.href || pullRequestNotLinked) {
+  if (oldUrl !== window.location.href || !pullRequestTitleContent?.includes('</a>')) {
     oldUrl = window.location.href;
     performLinking();
   }
