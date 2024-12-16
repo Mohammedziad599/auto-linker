@@ -10,9 +10,17 @@ let href = '';
 let regex = '';
 let jiraLink = '';
 
+const getPullRequestElement = (href) => {
+  if (href.includes('/commits')) {
+    return document.querySelector('h1[data-component="PH_Title"] .markdown-title');
+  } else {
+    return document.querySelector('bdi.js-issue-title.markdown-title');
+  }
+}
+
 function performLinking() {
   if (window.location.href.includes(href)) {
-    let pullRequestTitleElement = document.querySelector('bdi.js-issue-title.markdown-title');
+    let pullRequestTitleElement = getPullRequestElement(window.location.href);
     let pullRequestTitleText = pullRequestTitleElement?.textContent;
     let pullRequestTitleContent = pullRequestTitleElement?.innerHTML;
     if (!pullRequestTitleText || pullRequestTitleContent?.includes('</a>')) {
@@ -51,7 +59,7 @@ function getSettings() {
 }
 
 setInterval(() => {
-  let pullRequestTitleElement = document.querySelector('bdi.js-issue-title.markdown-title');
+  let pullRequestTitleElement = getPullRequestElement(window.location.href);
   let pullRequestTitleContent = pullRequestTitleElement?.innerHTML;
 
   if (oldUrl !== window.location.href || !pullRequestTitleContent?.includes('</a>')) {
