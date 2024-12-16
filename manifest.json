@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Auto-linker Github/Jira",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Change the Jira Tickets to links in the Github Pull Requests Title",
   "action": {
     "default_popup": "settings/settings.html"
