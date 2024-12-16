@@ -18,11 +18,13 @@ function performLinking() {
       return;
     }
 
-    pullRequestTitleText.match(regex)?.forEach((issueTicket) => {
+    const tickets = new Set(pullRequestTitleText.match(regex) ?? []);
+
+    [...tickets].forEach((issueTicket) => {
       let issueTicketLink = document.createElement('a');
       issueTicketLink.setAttribute('href', `${jiraLink}${issueTicket}`);
       issueTicketLink.innerHTML = issueTicket;
-      pullRequestTitleText = pullRequestTitleText.replace(new RegExp(`\\b${issueTicket}\\b`), issueTicketLink.outerHTML);
+      pullRequestTitleText = pullRequestTitleText.replaceAll(new RegExp(`\\b${issueTicket}\\b`, 'g'), issueTicketLink.outerHTML);
     });
 
     pullRequestTitleElement.innerHTML = pullRequestTitleText;
