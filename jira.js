@@ -1,4 +1,6 @@
 if (typeof browser === "undefined") {
+  // browser is where firefox have the browser API's
+  // this is to make browser work in chromium based browsers.
   var browser = chrome;
 }
 let oldUrl = window.location.href;
@@ -16,11 +18,13 @@ function performLinking() {
       return;
     }
 
-    pullRequestTitleText.match(regex)?.forEach((issueTicket) => {
+    const tickets = new Set(pullRequestTitleText.match(regex) ?? []);
+
+    [...tickets].forEach((issueTicket) => {
       let issueTicketLink = document.createElement('a');
       issueTicketLink.setAttribute('href', `${jiraLink}${issueTicket}`);
       issueTicketLink.innerHTML = issueTicket;
-      pullRequestTitleText = pullRequestTitleText.replace(new RegExp(`\\b${issueTicket}\\b`), issueTicketLink.outerHTML);
+      pullRequestTitleText = pullRequestTitleText.replaceAll(new RegExp(`\\b${issueTicket}\\b`, 'g'), issueTicketLink.outerHTML);
     });
 
     pullRequestTitleElement.innerHTML = pullRequestTitleText;
@@ -32,8 +36,7 @@ function getSettings() {
     username = results.username || "Test";
     repoName = results.repoName || "Test";
     href = `github.com/${username}/${repoName}/pull`;
-    regex = results.regex || "TEST-[0-9]+";
-    regex = new RegExp(regex, 'g');
+    regex = new RegExp(results.regex || "TEST-[0-9]+", 'g');
     jiraLink = results.jiraLink || "https://test.atlassian.com/browse/";
     performLinking();
   }
