@@ -1,4 +1,6 @@
 if (typeof browser === "undefined") {
+  // browser is where firefox have the browser API's
+  // this is to make browser work in chromium based browsers.
   var browser = chrome;
 }
 let oldUrl = window.location.href;
@@ -32,8 +34,7 @@ function getSettings() {
     username = results.username || "Test";
     repoName = results.repoName || "Test";
     href = `github.com/${username}/${repoName}/pull`;
-    regex = results.regex || "TEST-[0-9]+";
-    regex = new RegExp(regex, 'g');
+    regex = new RegExp(results.regex || "TEST-[0-9]+", 'g');
     jiraLink = results.jiraLink || "https://test.atlassian.com/browse/";
     performLinking();
   }
