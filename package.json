@@ -5,6 +5,7 @@
   "type": "module",
   "author": "Mohammed Ziad",
   "license": "ISC",
+  "description": "auto link pull request title to jira tickets",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
