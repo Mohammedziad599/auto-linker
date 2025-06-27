@@ -6,7 +6,7 @@ import '@/index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="auto-linker-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="auto-linker-ui-theme">
       <GitHubJiraConfig />
     </ThemeProvider>
   </StrictMode>,

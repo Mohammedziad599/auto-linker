@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 type Theme = "dark" | "light" | "system"
 
@@ -26,6 +27,7 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
+  const isPreferDark = useMediaQuery("(prefers-color-scheme: dark)");
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   )
@@ -36,17 +38,14 @@ export function ThemeProvider({
     root.classList.remove("light", "dark")
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light"
+      const systemTheme = isPreferDark ? "dark" : "light"
 
       root.classList.add(systemTheme)
       return
     }
 
     root.classList.add(theme)
-  }, [theme])
+  }, [theme, isPreferDark])
 
   const value = {
     theme,
