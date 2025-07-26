@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Auto-linker for GitHub and Jira",
+  "short_name": "Auto-linker",
+  "author": "Mohammed Ziad",
+  "version": "2.0",
+  "description": "Change the Jira Tickets to links in the Github Pull Requests Title",
+  "icons": {
+    "16": "/favicon-16x16.png",
+    "32": "/favicon-32x32.png",
+    "48": "/favicon-48x48.png",
+    "128": "/favicon-128x128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "/index.html",
+  "options_ui": {
+    "page": "/index.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "storage",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "js": [
+        "browser-polyfil.min.js",
+        "jira.js"
+      ]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "autolinker@extension.com"
+    }
+  }
+}
